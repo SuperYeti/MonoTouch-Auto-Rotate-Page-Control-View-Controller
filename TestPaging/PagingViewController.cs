@@ -3,7 +3,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using System.Drawing;
 
-namespace TestPaging
+namespace MonoTouch.Dialog
 {
 	public class PagingViewController : UIViewController
 	{

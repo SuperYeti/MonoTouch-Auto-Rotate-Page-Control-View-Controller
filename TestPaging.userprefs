@@ -1,15 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestPaging/PagingViewController.cs" ctype="Workbench">
     <Files>
-      <File FileName="TestPaging/Main.cs" Line="32" Column="24" />
-      <File FileName="TestPaging/PagingViewController.cs" Line="105" Column="4" />
-      <File FileName="../MonoTouch.Dialog/MonoTouch.Dialog/Elements.cs" Line="512" Column="1" />
+      <File FileName="TestPaging/Main.cs" Line="9" Column="1" />
+      <File FileName="TestPaging/PagingViewController.cs" Line="6" Column="27" />
+      <File FileName="../MonoTouch.Dialog/MonoTouch.Dialog/Elements.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="TestPaging" expanded="True" selected="True" />
+          <Node name="TestPaging" expanded="True">
+            <Node name="PagingViewController.cs" selected="True" />
+          </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">
