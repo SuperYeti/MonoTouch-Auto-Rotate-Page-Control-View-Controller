@@ -59,38 +59,6 @@ namespace MonoTouch.Dialog
 		    pageControl.Pages = count;
 		}
 		
-		void ResizePanels()
-		{
-			int count = 10;
-		    RectangleF scrollFrame = scrollView.Frame;
-		    scrollFrame.Width = scrollFrame.Width * count;
-		    scrollView.ContentSize = scrollFrame.Size;
-		
-		    for (int i=0; i<count; i++)
-		    {
-		        UILabel label = new UILabel();
-		        label.TextColor = UIColor.Black;
-		        label.TextAlignment = UITextAlignment.Center;
-		        label.Text = i.ToString();
-		
-		        if (i % 2 == 0)
-		            label.BackgroundColor = UIColor.Red;
-		        else
-		            label.BackgroundColor = UIColor.Blue;
-		
-		        RectangleF frame = scrollView.Frame;
-		        PointF location = new PointF();
-		        location.X = frame.Width * i;
-		
-		        frame.Location = location;
-		        label.Frame = frame;
-		
-		        scrollView.AddSubview(label);
-		    }
-		
-		    pageControl.Pages = count;
-		}
-		
 		private void ScrollViewScrolled (object sender, EventArgs e)
 		{
 		    double page = Math.Floor((scrollView.ContentOffset.X - scrollView.Frame.Width / 2) / scrollView.Frame.Width) + 1;
@@ -143,10 +111,10 @@ namespace MonoTouch.Dialog
 		{
 			base.DidRotate (fromInterfaceOrientation);
 			
-			baseView.Subviews[0].Frame = new RectangleF(0,0,baseView.Bounds.Width,baseView.Bounds.Height-36);
-			baseView.Subviews[1].Frame = new RectangleF(0,baseView.Bounds.Height-36,baseView.Bounds.Width,36);
+			scrollView.Frame = new RectangleF(0,0,baseView.Bounds.Width,baseView.Bounds.Height-36);
+			pageControl.Frame = new RectangleF(0,baseView.Bounds.Height-36,baseView.Bounds.Width,36);
 			
-			int count = baseView.Subviews[0].Subviews.Length;
+			int count = pageControl.Pages;
 			
 		    RectangleF scrollFrame = scrollView.Frame;
 		    scrollFrame.Width = scrollFrame.Width * count;
@@ -160,11 +128,14 @@ namespace MonoTouch.Dialog
 		
 		        frame.Location = location;
 		
-				baseView.Subviews[0].Subviews[i].Frame = frame;
+				scrollView.Subviews[i].Frame = frame;
 				
 		    }
-		
-		    pageControl.Pages = count;
+			
+			float pageOffset = scrollView.Frame.Width*pageControl.CurrentPage;
+				
+			PointF p = new PointF(pageOffset, 0);
+			scrollView.SetContentOffset(p,true);
 			
 		}
 		
